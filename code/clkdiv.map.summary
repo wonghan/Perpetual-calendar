@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Feb 28 21:22:26 2018
+Quartus II Version : 7.2 Build 151 09/26/2007 SJ Full Version
+Revision Name : clkdiv
+Top-level Entity Name : Block1
+Family : Cyclone II
+Total logic elements : 790
+    Total combinational functions : 790
+    Dedicated logic registers : 268
+Total registers : 268
+Total pins : 15
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

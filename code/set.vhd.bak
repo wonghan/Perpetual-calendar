@@ -1,0 +1,56 @@
+Library ieee;
+Use ieee.std_logic_1164.all;
+Use ieee.std_logic_unsigned.all;
+Entity set is 
+Port( so,mino,houro,dayo,montho:in std_logic;
+		mode:in std_logic;
+		k1,k2:in std_logic;					
+		mini,houri,dayi,monthi,yeari_l,yeari_h:out std_logic;
+		led1,led2,led3:out std_logic);
+end entity;
+architecture behav of set is
+	signal r:std_logic_vector(2 downto 0); 
+begin
+		process(mode,k1,k2,so,mino,houro,dayo,montho)
+		begin
+			case mode is
+				when '0'=>
+					if k1'event and k1='1' then
+						r<=r+'1';
+						if r=6 then 
+							r<="000";
+						end if;
+					end if;
+					yeari_l<='0';
+					yeari_h<='0';
+					case r is
+						when"000"=>mini<=so;houri<=mino;dayi<= houro;monthi<= dayo;yeari_l<= montho;
+								led1<='0';led2<='0';led3<='0';
+						when"001"=>mini<=k2;houri<='0'; dayi<='0';   monthi<='0'; 
+								led1<='0';led2<='0';led3<='1';
+						when"010"=>mini<=so;houri<=k2;  dayi<='0';   monthi<='0'; 
+								led1<='0';led2<='1';led3<='0';
+						when"011"=>mini<=so;houri<=mino;dayi<=k2;    monthi<='0'; 
+								led1<='0';led2<='1';led3<='1';
+						when"100"=>mini<=so;houri<=mino;dayi<= houro;monthi<=k2;  
+								led1<='1';led2<='0';led3<='0';
+						when"101"=>mini<=so;houri<=mino;dayi<= houro;monthi<=dayo;yeari_l<=k2;
+								led1<='1';led2<='0';led3<='1';
+						when"110"=>mini<=so;houri<=mino;dayi<= houro;monthi<=dayo;yeari_l<=k2;yeari_h<=k2;
+								led1<='1';led2<='1';led3<='0';
+						
+						when others=>null;
+						end case;
+				when '1'=>
+					r<="000";
+					mini<=so;
+					houri<=mino;
+					dayi<= houro;
+					monthi<= dayo;
+					yeari_l<= montho;
+					led1<='1';
+					led2<='1';
+					led3<='1';
+			end case;
+		end process;
+	end behav;

@@ -1,0 +1,496 @@
+Analysis & Synthesis report for clkdiv
+Wed Feb 28 21:22:27 2018
+Quartus II Version 7.2 Build 151 09/26/2007 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Analysis & Synthesis Source Files Read
+  5. Analysis & Synthesis Resource Usage Summary
+  6. Analysis & Synthesis Resource Utilization by Entity
+  7. User-Specified and Inferred Latches
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2007 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++------------------------------------+------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Feb 28 21:22:26 2018    ;
+; Quartus II Version                 ; 7.2 Build 151 09/26/2007 SJ Full Version ;
+; Revision Name                      ; clkdiv                                   ;
+; Top-level Entity Name              ; Block1                                   ;
+; Family                             ; Cyclone II                               ;
+; Total logic elements               ; 790                                      ;
+;     Total combinational functions  ; 790                                      ;
+;     Dedicated logic registers      ; 268                                      ;
+; Total registers                    ; 268                                      ;
+; Total pins                         ; 15                                       ;
+; Total virtual pins                 ; 0                                        ;
+; Total memory bits                  ; 0                                        ;
+; Embedded Multiplier 9-bit elements ; 0                                        ;
+; Total PLLs                         ; 0                                        ;
++------------------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                            ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                         ; Setting            ; Default Value      ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                         ; EP2C8Q208C8        ;                    ;
+; Top-level entity name                                                          ; Block1             ; clkdiv             ;
+; Family name                                                                    ; Cyclone II         ; Stratix II         ;
+; Use Generated Physical Constraints File                                        ; Off                ;                    ;
+; Use smart compilation                                                          ; Off                ; Off                ;
+; Maximum processors allowed for parallel compilation                            ; 1                  ; 1                  ;
+; Restructure Multiplexers                                                       ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                            ; Off                ; Off                ;
+; Preserve fewer node names                                                      ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                      ; Off                ; Off                ;
+; Verilog Version                                                                ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                   ; VHDL93             ; VHDL93             ;
+; State Machine Processing                                                       ; Auto               ; Auto               ;
+; Safe State Machine                                                             ; Off                ; Off                ;
+; Extract Verilog State Machines                                                 ; On                 ; On                 ;
+; Extract VHDL State Machines                                                    ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                              ; Off                ; Off                ;
+; Add Pass-Through Logic to Inferred RAMs                                        ; On                 ; On                 ;
+; Parallel Synthesis                                                             ; Off                ; Off                ;
+; DSP Block Balancing                                                            ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                             ; On                 ; On                 ;
+; Power-Up Don't Care                                                            ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                   ; Off                ; Off                ;
+; Remove Duplicate Registers                                                     ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                           ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                         ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                          ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                           ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                            ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                 ; Off                ; Off                ;
+; Optimization Technique -- Cyclone II/Cyclone III                               ; Balanced           ; Balanced           ;
+; Carry Chain Length -- Stratix/Stratix GX/Cyclone/MAX II/Cyclone II/Cyclone III ; 70                 ; 70                 ;
+; Auto Carry Chains                                                              ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                           ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                          ; Off                ; Off                ;
+; Perform gate-level register retiming                                           ; Off                ; Off                ;
+; Allow register retiming to trade off Tsu/Tco with Fmax                         ; On                 ; On                 ;
+; Auto ROM Replacement                                                           ; On                 ; On                 ;
+; Auto RAM Replacement                                                           ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                  ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                              ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                         ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                              ; Off                ; Off                ;
+; Auto Resource Sharing                                                          ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                             ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                             ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                  ; Off                ; Off                ;
+; Ignore translate_off and synthesis_off directives                              ; Off                ; Off                ;
+; Show Parameter Settings Tables in Synthesis Report                             ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                             ; Off                ; Off                ;
+; Retiming Meta-Stability Register Sequence Length                               ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                              ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                           ; On                 ; On                 ;
+; Block Design Naming                                                            ; Auto               ; Auto               ;
++--------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                    ;
++----------------------------------+-----------------+------------------------------------+---------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path    ;
++----------------------------------+-----------------+------------------------------------+---------------------------------+
+; clkdiv.vhd                       ; yes             ; User VHDL File                     ; D:/altera/test/clkdiv.vhd       ;
+; second.vhd                       ; yes             ; User VHDL File                     ; D:/altera/test/second.vhd       ;
+; minute.vhd                       ; yes             ; User VHDL File                     ; D:/altera/test/minute.vhd       ;
+; hour.vhd                         ; yes             ; User VHDL File                     ; D:/altera/test/hour.vhd         ;
+; day.vhd                          ; yes             ; User VHDL File                     ; D:/altera/test/day.vhd          ;
+; month.vhd                        ; yes             ; User VHDL File                     ; D:/altera/test/month.vhd        ;
+; year.vhd                         ; yes             ; User VHDL File                     ; D:/altera/test/year.vhd         ;
+; set.vhd                          ; yes             ; User VHDL File                     ; D:/altera/test/set.vhd          ;
+; change1.vhd                      ; yes             ; User VHDL File                     ; D:/altera/test/change1.vhd      ;
+; seg.vhd                          ; yes             ; User VHDL File                     ; D:/altera/test/seg.vhd          ;
+; key_read.vhd                     ; yes             ; User VHDL File                     ; D:/altera/test/key_read.vhd     ;
+; Block1.bdf                       ; yes             ; User Block Diagram/Schematic File  ; D:/altera/test/Block1.bdf       ;
+; modes.vhd                        ; yes             ; User VHDL File                     ; D:/altera/test/modes.vhd        ;
+; light.vhd                        ; yes             ; User VHDL File                     ; D:/altera/test/light.vhd        ;
+; alarm_minute.vhd                 ; yes             ; User VHDL File                     ; D:/altera/test/alarm_minute.vhd ;
+; alarm_hour.vhd                   ; yes             ; User VHDL File                     ; D:/altera/test/alarm_hour.vhd   ;
+; alarm_set.vhd                    ; yes             ; User VHDL File                     ; D:/altera/test/alarm_set.vhd    ;
+; alarm_clock.vhd                  ; yes             ; User VHDL File                     ; D:/altera/test/alarm_clock.vhd  ;
+; reset.vhd                        ; yes             ; User VHDL File                     ; D:/altera/test/reset.vhd        ;
++----------------------------------+-----------------+------------------------------------+---------------------------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 790   ;
+;                                             ;       ;
+; Total combinational functions               ; 790   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 351   ;
+;     -- 3 input functions                    ; 114   ;
+;     -- <=2 input functions                  ; 325   ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 553   ;
+;     -- arithmetic mode                      ; 237   ;
+;                                             ;       ;
+; Total registers                             ; 268   ;
+;     -- Dedicated logic registers            ; 268   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 15    ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 148   ;
+; Total fan-out                               ; 3099  ;
+; Average fan-out                             ; 2.89  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name        ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
+; |Block1                    ; 790 (0)           ; 268 (0)      ; 0           ; 0            ; 0       ; 0         ; 15   ; 0            ; |Block1                    ; work         ;
+;    |alarm_clock:inst8|     ; 14 (14)           ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|alarm_clock:inst8  ; work         ;
+;    |alarm_hour:inst5|      ; 19 (19)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|alarm_hour:inst5   ; work         ;
+;    |alarm_minute:inst6|    ; 18 (18)           ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|alarm_minute:inst6 ; work         ;
+;    |alarm_set:inst2|       ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|alarm_set:inst2    ; work         ;
+;    |change1:inst|          ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|change1:inst       ; work         ;
+;    |clkdiv:inst1|          ; 50 (50)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|clkdiv:inst1       ; work         ;
+;    |day:inst16|            ; 28 (28)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|day:inst16         ; work         ;
+;    |hour:inst15|           ; 20 (20)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|hour:inst15        ; work         ;
+;    |key_read:inst10|       ; 29 (29)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|key_read:inst10    ; work         ;
+;    |key_read:inst11|       ; 28 (28)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|key_read:inst11    ; work         ;
+;    |key_read:inst12|       ; 29 (29)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|key_read:inst12    ; work         ;
+;    |key_read:inst3|        ; 29 (29)           ; 24 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|key_read:inst3     ; work         ;
+;    |light:inst4|           ; 50 (50)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|light:inst4        ; work         ;
+;    |minute:inst14|         ; 19 (19)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|minute:inst14      ; work         ;
+;    |modes:inst9|           ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|modes:inst9        ; work         ;
+;    |month:inst17|          ; 30 (30)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|month:inst17       ; work         ;
+;    |reset:inst21|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|reset:inst21       ; work         ;
+;    |second:inst13|         ; 19 (19)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|second:inst13      ; work         ;
+;    |seg:inst7|             ; 252 (252)         ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|seg:inst7          ; work         ;
+;    |set:inst20|            ; 32 (32)           ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|set:inst20         ; work         ;
+;    |year:inst18|           ; 118 (118)         ; 35 (35)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Block1|year:inst18        ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; set:inst20|led1                                     ; set:inst20|Mux8     ; yes                    ;
+; set:inst20|led2                                     ; set:inst20|Mux8     ; yes                    ;
+; set:inst20|led3                                     ; set:inst20|Mux8     ; yes                    ;
+; seg:inst7|seg_duan[0]                               ; seg:inst7|Mux12     ; yes                    ;
+; seg:inst7|seg_duan[1]                               ; seg:inst7|Mux12     ; yes                    ;
+; seg:inst7|seg_duan[2]                               ; seg:inst7|Mux12     ; yes                    ;
+; seg:inst7|seg_duan[3]                               ; seg:inst7|Mux12     ; yes                    ;
+; seg:inst7|seg_duan[4]                               ; seg:inst7|Mux12     ; yes                    ;
+; seg:inst7|seg_duan[5]                               ; seg:inst7|Mux12     ; yes                    ;
+; seg:inst7|seg_duan[6]                               ; seg:inst7|Mux12     ; yes                    ;
+; set:inst20|mini                                     ; set:inst20|houri~1  ; yes                    ;
+; set:inst20|monthi                                   ; set:inst20|houri~1  ; yes                    ;
+; set:inst20|yeari_h                                  ; modes:inst9|t       ; yes                    ;
+; set:inst20|houri                                    ; set:inst20|houri~1  ; yes                    ;
+; set:inst20|dayi                                     ; set:inst20|houri~1  ; yes                    ;
+; month:inst17|sel[0]                                 ; month:inst17|Mux2   ; yes                    ;
+; month:inst17|sel[1]                                 ; month:inst17|Mux2   ; yes                    ;
+; Number of user-specified and inferred latches = 17  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; clkdiv:inst1|TIME[0]                  ; Merged with seg:inst7|clk2             ;
+; change1:inst|key_value[1]             ; Stuck at GND due to stuck port data_in ;
+; year:inst18|a[2]                      ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 3 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 268   ;
+; Number of registers using Synchronous Clear  ; 84    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 80    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 23    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; year:inst18|r[13]                      ; 3       ;
+; day:inst16|r[0]                        ; 2       ;
+; month:inst17|r[0]                      ; 5       ;
+; year:inst18|a[0]                       ; 3       ;
+; year:inst18|b[0]                       ; 1       ;
+; year:inst18|c[0]                       ; 1       ;
+; Total number of inverted registers = 6 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Block1|hour:inst15|r[0]        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Block1|alarm_hour:inst5|r[1]   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Block1|month:inst17|r[2]       ;
+; 3:1                ; 23 bits   ; 46 LEs        ; 23 LEs               ; 23 LEs                 ; Yes        ; |Block1|light:inst4|count[11]   ;
+; 3:1                ; 26 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |Block1|clkdiv:inst1|TIME[11]   ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Block1|minute:inst14|r[6]      ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Block1|alarm_minute:inst6|r[6] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Block1|second:inst13|r[7]      ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 4 LEs                ; 16 LEs                 ; Yes        ; |Block1|day:inst16|r[7]         ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |Block1|day:inst16|r[3]         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Block1|year:inst18|r~13        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Block1|year:inst18|r~55        ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |Block1|year:inst18|r~46        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Block1|year:inst18|r~51        ;
+; 24:1               ; 4 bits    ; 64 LEs        ; 48 LEs               ; 16 LEs                 ; No         ; |Block1|seg:inst7|Mux10         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 7.2 Build 151 09/26/2007 SJ Full Version
+    Info: Processing started: Wed Feb 28 21:22:22 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off clkdic -c clkdiv
+Info: Found 2 design units, including 1 entities, in source file clkdiv.vhd
+    Info: Found design unit 1: clkdiv-BEHAV
+    Info: Found entity 1: clkdiv
+Info: Found 2 design units, including 1 entities, in source file second.vhd
+    Info: Found design unit 1: second-behav
+    Info: Found entity 1: second
+Info: Found 2 design units, including 1 entities, in source file minute.vhd
+    Info: Found design unit 1: minute-behav
+    Info: Found entity 1: minute
+Info: Found 2 design units, including 1 entities, in source file hour.vhd
+    Info: Found design unit 1: hour-behav
+    Info: Found entity 1: hour
+Info: Found 2 design units, including 1 entities, in source file day.vhd
+    Info: Found design unit 1: day-behav
+    Info: Found entity 1: day
+Info: Found 2 design units, including 1 entities, in source file month.vhd
+    Info: Found design unit 1: month-behav
+    Info: Found entity 1: month
+Info: Found 2 design units, including 1 entities, in source file year.vhd
+    Info: Found design unit 1: year-behav
+    Info: Found entity 1: year
+Info: Found 2 design units, including 1 entities, in source file set.vhd
+    Info: Found design unit 1: set-behav
+    Info: Found entity 1: set
+Info: Found 2 design units, including 1 entities, in source file change1.vhd
+    Info: Found design unit 1: change1-behav
+    Info: Found entity 1: change1
+Info: Found 2 design units, including 1 entities, in source file seg.vhd
+    Info: Found design unit 1: seg-behav
+    Info: Found entity 1: seg
+Info: Found 2 design units, including 1 entities, in source file key_read.vhd
+    Info: Found design unit 1: key_read-behav
+    Info: Found entity 1: key_read
+Info: Found 1 design units, including 1 entities, in source file Block1.bdf
+    Info: Found entity 1: Block1
+Info: Found 2 design units, including 1 entities, in source file modes.vhd
+    Info: Found design unit 1: modes-behav
+    Info: Found entity 1: modes
+Info: Found 2 design units, including 1 entities, in source file light.vhd
+    Info: Found design unit 1: light-Behav
+    Info: Found entity 1: light
+Info: Found 2 design units, including 1 entities, in source file alarm_minute.vhd
+    Info: Found design unit 1: alarm_minute-behav
+    Info: Found entity 1: alarm_minute
+Info: Found 2 design units, including 1 entities, in source file alarm_hour.vhd
+    Info: Found design unit 1: alarm_hour-behav
+    Info: Found entity 1: alarm_hour
+Info: Found 2 design units, including 1 entities, in source file alarm_set.vhd
+    Info: Found design unit 1: alarm_set-behav
+    Info: Found entity 1: alarm_set
+Info: Found 2 design units, including 1 entities, in source file alarm_clock.vhd
+    Info: Found design unit 1: alarm_clock-behav
+    Info: Found entity 1: alarm_clock
+Info: Found 2 design units, including 1 entities, in source file reset.vhd
+    Info: Found design unit 1: reset-behav
+    Info: Found entity 1: reset
+Info: Elaborating entity "Block1" for the top level hierarchy
+Info: Elaborating entity "set" for hierarchy "set:inst20"
+Warning (10492): VHDL Process Statement warning at set.vhd(26): signal "r" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at set.vhd(14): inferring latch(es) for signal or variable "yeari_h", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at set.vhd(14): inferring latch(es) for signal or variable "mini", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at set.vhd(14): inferring latch(es) for signal or variable "houri", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at set.vhd(14): inferring latch(es) for signal or variable "dayi", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at set.vhd(14): inferring latch(es) for signal or variable "monthi", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at set.vhd(14): inferring latch(es) for signal or variable "led1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at set.vhd(14): inferring latch(es) for signal or variable "led2", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at set.vhd(14): inferring latch(es) for signal or variable "led3", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "led3" at set.vhd(14)
+Info (10041): Inferred latch for "led2" at set.vhd(14)
+Info (10041): Inferred latch for "led1" at set.vhd(14)
+Info (10041): Inferred latch for "monthi" at set.vhd(14)
+Info (10041): Inferred latch for "dayi" at set.vhd(14)
+Info (10041): Inferred latch for "houri" at set.vhd(14)
+Info (10041): Inferred latch for "mini" at set.vhd(14)
+Info (10041): Inferred latch for "yeari_h" at set.vhd(14)
+Info: Elaborating entity "second" for hierarchy "second:inst13"
+Info: Elaborating entity "clkdiv" for hierarchy "clkdiv:inst1"
+Info: Elaborating entity "reset" for hierarchy "reset:inst21"
+Info: Elaborating entity "key_read" for hierarchy "key_read:inst11"
+Info: Elaborating entity "minute" for hierarchy "minute:inst14"
+Info: Elaborating entity "hour" for hierarchy "hour:inst15"
+Info: Elaborating entity "day" for hierarchy "day:inst16"
+Info: Elaborating entity "month" for hierarchy "month:inst17"
+Warning (10631): VHDL Process Statement warning at month.vhd(13): inferring latch(es) for signal or variable "sel", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "sel[0]" at month.vhd(13)
+Info (10041): Inferred latch for "sel[1]" at month.vhd(13)
+Info: Elaborating entity "year" for hierarchy "year:inst18"
+Info: Elaborating entity "modes" for hierarchy "modes:inst9"
+Info: Elaborating entity "seg" for hierarchy "seg:inst7"
+Warning (10492): VHDL Process Statement warning at seg.vhd(93): signal "cnt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(95): signal "idata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(96): signal "idata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(97): signal "idata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(98): signal "idata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(99): signal "idata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(100): signal "idata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(101): signal "idata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(102): signal "idata" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at seg.vhd(47): inferring latch(es) for signal or variable "seg_duan", which holds its previous value in one or more paths through the process
+Warning (10492): VHDL Process Statement warning at seg.vhd(122): signal "seg_duan" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(123): signal "seg_duan" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(124): signal "seg_duan" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(125): signal "seg_duan" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(126): signal "seg_duan" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(127): signal "seg_duan" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(128): signal "seg_duan" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(129): signal "seg_duan" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(130): signal "seg_wei" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(131): signal "seg_wei" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(132): signal "seg_wei" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(133): signal "seg_wei" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(134): signal "seg_wei" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(135): signal "seg_wei" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(136): signal "seg_wei" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at seg.vhd(137): signal "seg_wei" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (10041): Inferred latch for "seg_duan[0]" at seg.vhd(47)
+Info (10041): Inferred latch for "seg_duan[1]" at seg.vhd(47)
+Info (10041): Inferred latch for "seg_duan[2]" at seg.vhd(47)
+Info (10041): Inferred latch for "seg_duan[3]" at seg.vhd(47)
+Info (10041): Inferred latch for "seg_duan[4]" at seg.vhd(47)
+Info (10041): Inferred latch for "seg_duan[5]" at seg.vhd(47)
+Info (10041): Inferred latch for "seg_duan[6]" at seg.vhd(47)
+Info (10041): Inferred latch for "seg_duan[7]" at seg.vhd(47)
+Info: Elaborating entity "change1" for hierarchy "change1:inst"
+Info: Elaborating entity "alarm_hour" for hierarchy "alarm_hour:inst5"
+Warning (10492): VHDL Process Statement warning at alarm_hour.vhd(13): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info: Elaborating entity "alarm_set" for hierarchy "alarm_set:inst2"
+Info: Elaborating entity "alarm_minute" for hierarchy "alarm_minute:inst6"
+Warning (10492): VHDL Process Statement warning at alarm_minute.vhd(13): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info: Elaborating entity "alarm_clock" for hierarchy "alarm_clock:inst8"
+Info: Elaborating entity "light" for hierarchy "light:inst4"
+Info: Clock multiplexers have been protected
+Info: Duplicate registers merged to single register
+    Info: Duplicate register "clkdiv:inst1|TIME[0]" merged to single register "seg:inst7|clk2"
+Warning (14130): Reduced register "change1:inst|key_value[1]" with stuck data_in port to stuck value GND
+Warning: Latch set:inst20|led1 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal set:inst20|r[2]
+Warning: Latch set:inst20|led2 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal set:inst20|r[1]
+Warning: Latch set:inst20|led3 has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal set:inst20|r[0]
+Warning: Latch seg:inst7|seg_duan[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal seg:inst7|cnt[7]
+Warning: Latch seg:inst7|seg_duan[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal second:inst13|r[2]
+Warning: Latch seg:inst7|seg_duan[2] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal seg:inst7|cnt[7]
+Warning: Latch seg:inst7|seg_duan[3] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal seg:inst7|cnt[7]
+Warning: Latch seg:inst7|seg_duan[4] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal seg:inst7|cnt[7]
+Warning: Latch seg:inst7|seg_duan[5] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal seg:inst7|cnt[7]
+Warning: Latch seg:inst7|seg_duan[6] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal seg:inst7|cnt[7]
+Warning: Latch set:inst20|mini has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal set:inst20|r[1]
+Warning: Latch set:inst20|monthi has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal modes:inst9|t
+Warning: Latch set:inst20|houri has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal modes:inst9|t
+Warning: Latch set:inst20|dayi has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal modes:inst9|t
+Warning: Latch month:inst17|sel[0] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal month:inst17|r[4]
+Warning: Latch month:inst17|sel[1] has unsafe behavior
+    Warning: Ports D and ENA on the latch are fed by the same signal month:inst17|r[0]
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (14130): Reduced register "year:inst18|a[2]" with stuck data_in port to stuck value GND
+Info: Implemented 857 device resources after synthesis - the final resource count might be different
+    Info: Implemented 5 input pins
+    Info: Implemented 10 output pins
+    Info: Implemented 842 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 72 warnings
+    Info: Allocated 223 megabytes of memory during processing
+    Info: Processing ended: Wed Feb 28 21:22:27 2018
+    Info: Elapsed time: 00:00:05
+
+

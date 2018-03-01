@@ -1,0 +1,21 @@
+Library ieee;
+Use ieee.std_logic_1164.all;
+Use ieee.std_logic_unsigned.all;
+Entity reset is 
+Port(clk,k0,k1:in std_logic;
+    c:out std_logic);
+end entity;
+architecture behav of reset is
+begin
+process(clk,k0,k1)
+variable r:std_logic_vector(7 downto 0); 
+begin
+		
+		if (rising_edge(clk)) then
+			c<='1';
+			if((k0='1')and (k1='1'))then 
+			c<='0';
+			end if;
+		end if;	 
+end process;
+end behav;

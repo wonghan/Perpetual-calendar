@@ -1,0 +1,30 @@
+Library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+Entity alarm is 
+Port( mode:in std_logic;
+		clk:in std_logic;
+		ret:in std_logic;
+		hour_up,min_up:in std_logic;
+		q:out std_logic_vector(31 downto 0));
+end entity;
+architecture behav of alarm is
+begin
+		process(clk)
+		variable r:std_logic_vector(7 downto 0); 
+		begin
+		if ret='0' then r:="00000000";
+		elsif (rising_edge(clk)) then
+			r:=r+1;c<='0';
+			if r(3 downto 0)="1010"  then
+				r(3 downto 0):="0000";
+				if r(7 downto 4)/="0101" then
+					r(7 downto 4):=r(7 downto 4)+1;
+				elsif r(7 downto 4)="0101"then
+					r(7 downto 4):="0000";c<='1';
+				end if;
+			end if;
+		end if;	
+		q<=r;
+		end process;
+	end behav;

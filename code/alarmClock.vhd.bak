@@ -1,0 +1,27 @@
+Library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+Entity alarmClock is 
+Port( second:in std_logic_vector(7 downto 0);
+	    minute:in std_logic_vector(7 downto 0);
+	    hour:in std_logic_vector(7 downto 0);
+        alarm:in std_logic_vector(31 downto 0);	
+        k0:in std_logic;		
+		q:out std_logic);
+end entity;
+architecture behav of alarmClock is
+	signal present:std_logic_vector(23 downto 0); 
+	signal clock:std_logic_vector(23 downto 0); 
+begin
+	present<=hour&minute&second;
+	clock<=alarm(23 downto 0);
+	process(k0,present)
+	begin
+	if(k0='0') then
+            q<='0';
+	elsif(present=clock) then
+            q<='1';
+	end if;
+	end process;
+end behav;

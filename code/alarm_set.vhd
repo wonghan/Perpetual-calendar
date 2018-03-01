@@ -1,0 +1,34 @@
+Library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+Entity alarm_set is 
+Port( mode:in std_logic;
+		k1,k2,k3:in std_logic;
+		ret:out std_logic;
+		hour_up,min_up:out std_logic);
+end entity;
+architecture behav of alarm_set is
+begin
+		process(mode,k1,k2,k3)
+		begin 
+		case mode is
+			when '1' =>
+					if k1='1' then
+						hour_up<='1';
+					else hour_up<='0';
+					end if;
+					if k2='1' then
+						min_up<='1';
+					else min_up<='0';
+					end if;
+					if k3='1' then
+						ret<='1';
+					else ret<='0';
+					end if;
+			when '0' =>
+				hour_up<='0';
+				min_up<='0';
+				ret<='0';
+		end case;
+		end process;
+	end behav;
